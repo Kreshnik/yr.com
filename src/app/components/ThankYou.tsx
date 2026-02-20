@@ -51,7 +51,7 @@ export function ThankYou() {
               <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
                 Check your email Monday morning to see if you're one of the chosen ones.
               </p>
-              <p className="text-sm text-gray-500 italic text-center">
+              <p className="text-sm text-gray-600 italic text-center">
                 You just joined <strong>49,598 souls</strong> who trusted the process. Welcome to the community.
               </p>
             </div>

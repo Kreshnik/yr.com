@@ -21,22 +21,6 @@ const steps = [
   }
 ];
 
-function ProgressBar({ activeStep }: { activeStep: number }) {
-  return (
-    <div className="mt-4">
-      <div className="flex gap-1.5 h-1.5 rounded-full overflow-hidden bg-gray-200">
-        {[1, 2, 3].map((s) => (
-          <div
-            key={s}
-            className={`flex-1 rounded-full transition-all ${s <= activeStep ? 'bg-gradient-to-r from-[#3B0099] to-[#A855F7]' : 'bg-gray-200'}`}
-          />
-        ))}
-      </div>
-      <p className="text-xs text-gray-400 mt-1 text-right">Step {activeStep} of 3</p>
-    </div>
-  );
-}
-
 export function HowItWorks() {
   return (
     <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-purple-50 to-white">
@@ -45,28 +29,37 @@ export function HowItWorks() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] bg-clip-text text-transparent mb-4 sm:mb-6">How This Works</h2>
         </div>
 
-        <div className="space-y-8 sm:space-y-12 mb-12 sm:mb-16">
-          {steps.map((step) => (
-            <div key={step.number} className="bg-white rounded-2xl p-6 sm:p-8 lg:p-10 shadow-sm">
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-                <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#4A00BF] text-white flex items-center justify-center text-xl sm:text-2xl font-light">
-                  {step.number}
+        <div className="relative">
+          {/* Connecting line */}
+          <div className="absolute left-6 sm:left-8 top-12 bottom-12 w-px bg-gradient-to-b from-[#4A00BF]/30 via-[#A855F7]/20 to-transparent hidden sm:block" />
+
+          <div className="space-y-6 sm:space-y-8 mb-12 sm:mb-16">
+            {steps.map((step) => (
+              <div key={step.number} className="flex gap-5 sm:gap-7">
+                {/* Step badge */}
+                <div className="flex-shrink-0 flex flex-col items-center">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#3B0099] to-[#7C3AED] text-white flex items-center justify-center text-lg sm:text-xl font-semibold shadow-md shadow-purple-200 z-10">
+                    {step.number}
+                  </div>
                 </div>
-                <div className="flex-1 space-y-2 sm:space-y-3">
-                  <h3 className="text-xl sm:text-2xl text-gray-900">
-                    Step {step.number}: {step.title}
-                  </h3>
-                  {step.subtitle && (
-                    <p className="text-base sm:text-lg text-[#4A00BF]">{step.subtitle}</p>
-                  )}
-                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
-                    {step.description}
-                  </p>
-                  <ProgressBar activeStep={parseInt(step.number)} />
+
+                {/* Card */}
+                <div className="flex-1 bg-white rounded-2xl p-6 sm:p-8 border border-purple-100 shadow-sm mb-1">
+                  <div className="space-y-2 sm:space-y-3">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="text-xl sm:text-2xl text-gray-900">{step.title}</h3>
+                      {step.subtitle && (
+                        <span className="text-sm font-medium text-[#4A00BF] bg-purple-50 px-2 py-0.5 rounded-full">{step.subtitle}</span>
+                      )}
+                    </div>
+                    <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         <div className="text-center">

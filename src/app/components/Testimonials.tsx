@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react';
+import { motion } from 'motion/react';
 import { Button } from '@/app/components/ui/button';
 import { Heart, Star } from 'lucide-react';
+import { MovingTestimonials } from '@/app/components/MovingTestimonials';
 import video1 from '@/assets/videos/video1.mp4';
 import video2 from '@/assets/videos/video2.mp4';
 import video3 from '@/assets/videos/video3.mp4';
@@ -37,10 +39,6 @@ const videoTestimonials = [
   }
 ];
 
-const textTestimonials = [
-  { text: '"The insights about my soul path were beautiful."', author: 'Amara D.' },
-  { text: '"The cosmic guidance helped me trust myself again."', author: 'Lena R.' }
-];
 
 function StarRow() {
   return (
@@ -62,7 +60,11 @@ function VideoCard({ src, poster, name, text }: { src: string; poster: string; n
   };
 
   return (
-    <div className="bg-gray-50 rounded-2xl overflow-hidden">
+    <motion.div
+      className="bg-gray-50 rounded-2xl overflow-hidden"
+      whileHover={{ y: -4, boxShadow: '0 12px 32px rgba(74,0,191,0.10)' }}
+      transition={{ duration: 0.25, ease: 'easeOut' }}
+    >
       <div className="relative aspect-[9/16]">
         <video
           ref={videoRef}
@@ -74,21 +76,25 @@ function VideoCard({ src, poster, name, text }: { src: string; poster: string; n
         {!playing && (
           <button
             onClick={handlePlay}
-            className="absolute inset-0 flex items-center justify-center bg-black/10"
+            className="absolute inset-0 flex items-center justify-center bg-black/10 cursor-pointer"
             aria-label="Play video"
           >
-            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#4A00BF] rounded-full flex items-center justify-center shadow-lg">
+            <motion.div
+              animate={{ scale: [1, 1.08, 1] }}
+              transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+              className="w-14 h-14 sm:w-16 sm:h-16 bg-[#4A00BF] rounded-full flex items-center justify-center shadow-lg"
+            >
               <div className="w-0 h-0 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent border-l-[18px] border-l-white ml-1" />
-            </div>
+            </motion.div>
           </button>
         )}
       </div>
       <div className="p-6 sm:p-8">
         <StarRow />
         <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-3 sm:mb-4">{text}</p>
-        <p className="text-sm sm:text-base text-gray-500">— {name}</p>
+        <p className="text-sm sm:text-base text-gray-600">— {name}</p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -96,37 +102,53 @@ export function Testimonials() {
   return (
     <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12 sm:mb-20">
+        <motion.div
+          className="text-center mb-12 sm:mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] bg-clip-text text-transparent mb-4">Stories From Kindred Spirits</h2>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
           {videoTestimonials.map((testimonial, index) => (
-            <VideoCard key={index} {...testimonial} />
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 36 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.55, delay: index * 0.1, ease: 'easeOut' }}
+            >
+              <VideoCard {...testimonial} />
+            </motion.div>
           ))}
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 mb-10 sm:mb-14">
-          {textTestimonials.map(({ text, author }, index) => (
-            <div key={index} className="bg-[#4A00BF]/5 rounded-2xl p-6 sm:p-8">
-              <div className="flex gap-3 sm:gap-4">
-                <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-[#4A00BF] flex-shrink-0 mt-1" fill="currentColor" />
-                <div>
-                  <p className="text-base sm:text-lg text-gray-700 leading-relaxed">{text}</p>
-                  <p className="text-sm text-gray-500 mt-2">— {author}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        <motion.div
+          className="mb-10 sm:mb-14 -mx-4 sm:-mx-6 lg:-mx-8"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
+          <MovingTestimonials />
+        </motion.div>
 
         {/* Social proof anchor */}
-        <div className="flex justify-center mb-10 sm:mb-14">
+        <motion.div
+          className="flex justify-center mb-10 sm:mb-14"
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+        >
           <div className="inline-flex items-center gap-3 bg-purple-50 rounded-2xl px-6 py-4">
             <Heart className="w-5 h-5 text-[#A855F7]" fill="currentColor" />
             <p className="text-sm sm:text-base text-gray-600">Joined by <strong className="text-[#4A00BF]">49,598 seekers</strong> who trusted the process</p>
           </div>
-        </div>
+        </motion.div>
 
         <div className="text-center">
           <Button

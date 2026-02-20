@@ -36,63 +36,14 @@ export function EntryForm({ onSubmitSuccess }: EntryFormProps) {
   };
 
   return (
-    <section id="entry-form" className="pt-4 sm:pt-6 lg:pt-8 pb-8 sm:pb-12 lg:pb-16 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
-      <style>{`
-        @keyframes float1 {
-          0%, 100% { transform: translate(0, 0) rotate(0deg); }
-          25% { transform: translate(10px, -15px) rotate(5deg); }
-          50% { transform: translate(-5px, -25px) rotate(-3deg); }
-          75% { transform: translate(-15px, -10px) rotate(4deg); }
-        }
-        @keyframes float2 {
-          0%, 100% { transform: translate(0, 0) rotate(0deg); }
-          33% { transform: translate(-12px, -20px) rotate(-4deg); }
-          66% { transform: translate(8px, -15px) rotate(3deg); }
-        }
-        @keyframes float3 {
-          0%, 100% { transform: translate(0, 0) rotate(0deg); }
-          20% { transform: translate(15px, -10px) rotate(6deg); }
-          40% { transform: translate(5px, -25px) rotate(-2deg); }
-          60% { transform: translate(-10px, -20px) rotate(4deg); }
-          80% { transform: translate(-8px, -8px) rotate(-3deg); }
-        }
-        @keyframes float4 {
-          0%, 100% { transform: translate(0, 0) rotate(0deg); }
-          50% { transform: translate(-18px, -18px) rotate(-5deg); }
-        }
-        .animate-float1 { animation: float1 8s ease-in-out infinite; }
-        .animate-float2 { animation: float2 10s ease-in-out infinite; }
-        .animate-float3 { animation: float3 12s ease-in-out infinite; }
-        .animate-float4 { animation: float4 9s ease-in-out infinite; }
-      `}</style>
-
-      <div className="absolute inset-0 pointer-events-none">
-        <Heart className="absolute top-10 left-[5%] w-12 h-12 text-purple-200 fill-purple-200 opacity-35 animate-float1" />
-        <Heart className="absolute top-16 right-[8%] w-10 h-10 text-violet-200 fill-violet-200 opacity-30 animate-float2" />
-        <Heart className="absolute top-32 left-[15%] w-14 h-14 text-purple-100 fill-purple-100 opacity-25 animate-float3" />
-        <Heart className="absolute top-20 right-[20%] w-8 h-8 text-violet-100 fill-violet-100 opacity-32 animate-float4" />
-        <Heart className="absolute top-[8%] left-[8%] w-10 h-10 text-purple-200 fill-purple-200 opacity-28 animate-float2" />
-        <Heart className="absolute top-[10%] right-[12%] w-11 h-11 text-violet-100 fill-violet-100 opacity-28 animate-float1" />
-        <Heart className="absolute top-[12%] left-[18%] w-9 h-9 text-purple-100 fill-purple-100 opacity-30 animate-float4" />
-        <Heart className="absolute top-[15%] right-[5%] w-12 h-12 text-violet-200 fill-violet-200 opacity-25 animate-float3" />
-        <Heart className="absolute top-[18%] left-[25%] w-10 h-10 text-purple-200 fill-purple-200 opacity-32 animate-float2" />
-        <Heart className="absolute top-[22%] right-[15%] w-12 h-12 text-violet-100 fill-violet-100 opacity-30 animate-float1" />
-        <Heart className="absolute top-[28%] left-[3%] w-9 h-9 text-purple-100 fill-purple-100 opacity-28 animate-float3" />
-        <Heart className="absolute top-[32%] right-[25%] w-11 h-11 text-violet-200 fill-violet-200 opacity-30 animate-float4" />
-        <Heart className="absolute top-[38%] left-[22%] w-8 h-8 text-purple-200 fill-purple-200 opacity-32 animate-float1" />
-        <Heart className="absolute top-[42%] right-[6%] w-12 h-12 text-violet-100 fill-violet-100 opacity-25 animate-float2" />
-        <Heart className="absolute top-[48%] left-[12%] w-10 h-10 text-purple-100 fill-purple-100 opacity-30 animate-float4" />
-        <Heart className="absolute top-[52%] right-[18%] w-9 h-9 text-violet-200 fill-violet-200 opacity-28 animate-float3" />
-        <Heart className="absolute top-[58%] left-[28%] w-11 h-11 text-purple-200 fill-purple-200 opacity-32 animate-float1" />
-        <Heart className="absolute top-[62%] right-[10%] w-12 h-12 text-violet-100 fill-violet-100 opacity-28 animate-float2" />
-        <Heart className="absolute top-[68%] left-[6%] w-10 h-10 text-purple-100 fill-purple-100 opacity-30 animate-float4" />
-        <Heart className="absolute top-[72%] right-[22%] w-14 h-14 text-violet-200 fill-violet-200 opacity-25 animate-float3" />
-        <Heart className="absolute top-[78%] left-[20%] w-9 h-9 text-purple-200 fill-purple-200 opacity-30 animate-float1" />
-        <Heart className="absolute bottom-32 left-[15%] w-11 h-11 text-violet-100 fill-violet-100 opacity-30 animate-float2" />
-        <Heart className="absolute bottom-28 right-[8%] w-10 h-10 text-purple-100 fill-purple-100 opacity-28 animate-float4" />
-        <Heart className="absolute bottom-20 right-[20%] w-12 h-12 text-violet-200 fill-violet-200 opacity-25 animate-float3" />
-        <Heart className="absolute bottom-16 left-[10%] w-12 h-12 text-purple-200 fill-purple-200 opacity-32 animate-float1" />
-        <Heart className="absolute bottom-24 right-[14%] w-8 h-8 text-violet-100 fill-violet-100 opacity-32 animate-float2" />
+    <section id="entry-form" className="min-h-screen flex flex-col justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20 bg-white relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+        <Heart className="absolute top-10 left-[5%] w-12 h-12 text-purple-200 fill-purple-200 opacity-30 animate-[float_8s_ease-in-out_infinite]" />
+        <Heart className="absolute top-[20%] right-[6%] w-10 h-10 text-violet-200 fill-violet-200 opacity-25 animate-[float_11s_ease-in-out_infinite_1.5s]" />
+        <Heart className="absolute top-[45%] left-[3%] w-9 h-9 text-purple-100 fill-purple-100 opacity-25 animate-[float_9s_ease-in-out_infinite_3s]" />
+        <Heart className="absolute top-[50%] right-[4%] w-11 h-11 text-violet-100 fill-violet-100 opacity-20 animate-[float_13s_ease-in-out_infinite_0.5s]" />
+        <Heart className="absolute bottom-24 left-[8%] w-10 h-10 text-purple-200 fill-purple-200 opacity-25 animate-[float_10s_ease-in-out_infinite_2s]" />
+        <Heart className="absolute bottom-16 right-[10%] w-8 h-8 text-violet-200 fill-violet-200 opacity-20 animate-[float_12s_ease-in-out_infinite_4s]" />
       </div>
 
       <div className="max-w-3xl mx-auto relative z-10">
@@ -114,7 +65,7 @@ export function EntryForm({ onSubmitSuccess }: EntryFormProps) {
           </p>
         </div>
 
-        <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-lg relative z-20">
+        <div className="bg-white rounded-3xl p-6 sm:p-10 lg:p-12 shadow-lg border border-purple-200 relative z-20">
           <div className="text-center mb-6 sm:mb-8">
             <p className="text-xl sm:text-2xl text-gray-900 mb-3 sm:mb-4">
               <strong className="text-[#4A00BF]">10 beautiful souls</strong> will receive a free reading this Monday. And every Monday after.
@@ -144,7 +95,7 @@ export function EntryForm({ onSubmitSuccess }: EntryFormProps) {
                 value={formData.firstName}
                 onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
               />
-              <p className="text-xs text-gray-400">This is how we'll greet you if you're chosen.</p>
+              <p className="text-xs text-gray-600">This is how we'll greet you if you're chosen.</p>
             </div>
 
             <div className="space-y-1">
@@ -160,7 +111,7 @@ export function EntryForm({ onSubmitSuccess }: EntryFormProps) {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
-              <p className="text-xs text-gray-400">We only send your weekly drawing result and occasional spiritual insights. Unsubscribe anytime.</p>
+              <p className="text-xs text-gray-600">We only send your weekly drawing result and occasional spiritual insights. Unsubscribe anytime.</p>
             </div>
 
             <div className="space-y-1">
@@ -176,7 +127,7 @@ export function EntryForm({ onSubmitSuccess }: EntryFormProps) {
                 value={formData.nickname}
                 onChange={(e) => setFormData({ ...formData, nickname: e.target.value })}
               />
-              <p className="text-xs text-gray-400">Winners are announced publicly by nickname only. Your full identity is always protected.</p>
+              <p className="text-xs text-gray-600">Winners are announced publicly by nickname only. Your full identity is always protected.</p>
             </div>
 
             <Button
@@ -191,7 +142,7 @@ export function EntryForm({ onSubmitSuccess }: EntryFormProps) {
               <p className="text-red-500 text-sm text-center">{submitError}</p>
             )}
 
-            <p className="text-xs sm:text-sm text-gray-500 text-center leading-relaxed">
+            <p className="text-xs sm:text-sm text-gray-600 text-center leading-relaxed">
               No credit card required. Your privacy is sacred to us.
             </p>
           </form>

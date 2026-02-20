@@ -30,8 +30,8 @@ export function HowWeRate() {
   ];
 
   return (
-    <section className="pt-0 sm:pt-0 sm:pb-24 lg:pt-0 lg:pb-32 px-4 sm:px-6 lg:px-8 bg-white pb-16">
-      <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
+    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 bg-white">
+      <div className="max-w-4xl mx-auto w-full space-y-6 sm:space-y-8">
         <div className="text-center space-y-4">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-tight font-bold bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] bg-clip-text text-transparent flex items-center justify-center gap-3">
             <ClipboardCheck className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#4A00BF]" />

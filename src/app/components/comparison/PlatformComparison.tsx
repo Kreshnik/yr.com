@@ -1,5 +1,5 @@
 import { Button } from '@/app/components/ui/button';
-import { Star, Award } from 'lucide-react';
+import { Star, Award, Trophy } from 'lucide-react';
 import psychicWorldLogo from '../../../assets/99166b2fdb82cc81617a29b6cafe281411a223c2.png';
 import keenLogo from '../../../assets/567a57a976440ed636e52ab68862971d87e32b57.png';
 
@@ -43,89 +43,115 @@ function PlatformCard({ rank, name, website, isTopRated, comparison, conclusion,
   const currentDate = new Date();
   const month = currentDate.toLocaleString('en-US', { month: 'long' });
   const year = currentDate.getFullYear();
-  const starCount = rank <= 2 ? 5 : rank <= 3 ? 4 : 4;
 
   return (
-    <div className={`bg-white rounded-2xl shadow-xl border-2 overflow-hidden ${isTopRated ? 'border-[#4A00BF]' : 'border-gray-200'}`}>
+    <div className={`relative bg-white rounded-2xl border ${isTopRated ? 'border-[#4A00BF] shadow-sm' : 'border-gray-200 shadow-sm'}`}>
+
+      {/* Winning ribbon banner */}
       {isTopRated && (
-        <div className="bg-gradient-to-r from-[#4A00BF] to-[#7C3AED] text-white py-3 px-6 flex items-center justify-center gap-2">
-          <Award className="w-6 h-6" />
-          <span className="font-bold text-lg">Best Rated – Editor's Choice, {month} {year}</span>
+        <div className="relative rounded-t-2xl overflow-hidden bg-gradient-to-r from-[#150033] via-[#3B0099] to-[#150033] px-6 py-5">
+          {/* Subtle shimmer overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
+          <div className="relative flex items-center justify-center gap-3 sm:gap-5">
+            {/* Left decoration */}
+            <div className="hidden sm:flex items-center gap-1.5 flex-shrink-0">
+              <Star className="w-3.5 h-3.5 fill-yellow-200 text-yellow-200 opacity-60" />
+              <Star className="w-4.5 h-4.5 fill-yellow-300 text-yellow-300" />
+            </div>
+
+            <Trophy className="w-7 h-7 sm:w-8 sm:h-8 text-yellow-300 flex-shrink-0 drop-shadow-sm" />
+
+            <div className="text-center">
+              <div className="text-base sm:text-xl font-black text-white tracking-[0.15em] uppercase leading-none drop-shadow-sm">
+                Editor's Choice
+              </div>
+              <div className="text-[11px] sm:text-xs text-yellow-200/90 mt-1.5 tracking-widest uppercase font-medium">
+                #1 Rated Psychic Platform · {month} {year}
+              </div>
+            </div>
+
+            <Award className="w-7 h-7 sm:w-8 sm:h-8 text-yellow-300 flex-shrink-0 drop-shadow-sm" />
+
+            {/* Right decoration */}
+            <div className="hidden sm:flex items-center gap-1.5 flex-shrink-0">
+              <Star className="w-4.5 h-4.5 fill-yellow-300 text-yellow-300" />
+              <Star className="w-3.5 h-3.5 fill-yellow-200 text-yellow-200 opacity-60" />
+            </div>
+          </div>
         </div>
       )}
 
-      <div className="p-6 sm:p-8 space-y-6">
-        <div className="text-center space-y-2">
-          <div className="flex items-center justify-center gap-2">
-            <span className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] bg-clip-text text-transparent">
-              {rankLabel(rank)}
-            </span>
-            {[...Array(starCount)].map((_, i) => (
-              <Star key={i} className="w-5 h-5 fill-[#4A00BF] text-[#4A00BF]" />
-            ))}
+      <div className="p-5 sm:p-7">
+        {/* Card header — rank badge + name + stars stacked */}
+        <div className="flex items-start gap-3 mb-5">
+          <span className="flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-br from-[#3B0099] to-[#7C3AED] text-white text-sm font-bold shadow-sm mt-0.5">
+            {rank}
+          </span>
+          <div className="min-w-0">
+            {name === 'Psychicworld.com' ? (
+              <img src={psychicWorldLogo} alt="Psychic World" className="h-7 w-auto" />
+            ) : name === 'Keen.com' ? (
+              <img src={keenLogo} alt="Keen" className="h-7 w-auto" />
+            ) : (
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900">{name}</h3>
+            )}
+            <p className="text-xs text-gray-600 mt-0.5 mb-2">{website}</p>
+            <div className="flex gap-1">
+              {[...Array(rank <= 2 ? 5 : 4)].map((_, i) => (
+                <Star key={i} className="w-5 h-5 fill-[#A855F7] text-[#A855F7]" />
+              ))}
+            </div>
           </div>
-          {name === 'Psychicworld.com' ? (
-            <div className="flex items-center justify-center py-2">
-              <img src={psychicWorldLogo} alt="Psychic World" className="h-8 sm:h-10 w-auto" />
-            </div>
-          ) : name === 'Keen.com' ? (
-            <div className="flex items-center justify-center py-2">
-              <img src={keenLogo} alt="Keen" className="h-8 sm:h-10 w-auto" />
-            </div>
-          ) : (
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#4A00BF]">{name}</h3>
-          )}
-          <p className="text-sm text-gray-600">{website}</p>
         </div>
 
-        <div className="overflow-x-auto">
+        {/* Comparison table */}
+        <div className="overflow-x-auto rounded-xl border border-gray-100">
           <table className="w-full">
             <thead>
-              <tr className="border-b-2 border-[#4A00BF]/20">
-                <th className="text-left py-3 px-2 text-sm font-bold text-[#4A00BF]">What's rated</th>
-                <th className="text-center py-3 px-2 text-sm font-bold text-[#4A00BF]">Score</th>
-                <th className="text-left py-3 px-2 text-sm font-bold text-[#4A00BF]">Why</th>
+              <tr className="bg-gray-50 border-b border-gray-100">
+                <th className="text-left py-2.5 px-3 text-xs font-semibold text-gray-600 uppercase tracking-wide">Criterion</th>
+                <th className="text-center py-2.5 px-3 text-xs font-semibold text-gray-600 uppercase tracking-wide w-20">Score</th>
+                <th className="text-left py-2.5 px-3 text-xs font-semibold text-gray-600 uppercase tracking-wide">Notes</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="divide-y divide-gray-100">
               {comparison.map((row, index) => (
-                <tr key={index} className="border-b border-gray-200">
-                  <td className="py-4 px-2 text-sm font-medium text-gray-700">{row.criterion}</td>
-                  <td className="py-4 px-2 text-center">
-                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${getScoreColor(row.score)}`}>
+                <tr key={index} className="hover:bg-gray-50/50 transition-colors">
+                  <td className="py-3 px-3 text-sm font-medium text-gray-700 whitespace-nowrap">{row.criterion}</td>
+                  <td className="py-3 px-3 text-center">
+                    <span className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold ${getScoreColor(row.score)}`}>
                       {row.score}
                     </span>
                   </td>
-                  <td className="py-4 px-2 text-sm text-gray-600">{row.why}</td>
+                  <td className="py-3 px-3 text-sm text-gray-600">{row.why}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        <div className="bg-gradient-to-br from-[#4A00BF]/10 via-[#A855F7]/5 to-[#4A00BF]/5 rounded-xl p-6 border border-[#4A00BF]/20">
-          <h4 className="font-bold text-lg text-[#4A00BF] mb-3">Our Conclusion</h4>
-          <p className="text-base text-gray-700 leading-relaxed">{conclusion}</p>
+        {/* Conclusion */}
+        <div className="mt-4 px-4 py-3 rounded-xl bg-purple-50 border-l-4 border-[#4A00BF]">
+          <p className="text-sm text-gray-700 leading-relaxed"><span className="font-semibold text-[#4A00BF]">Verdict: </span>{conclusion}</p>
         </div>
 
+        {/* CTAs */}
         {ctaText && ctaUrl && (
-          <div className="text-center space-y-3">
+          <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Button
-              size="lg"
-              className="w-full sm:w-auto bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] hover:from-[#2A0066] hover:via-[#3A0099] hover:to-[#9333EA] text-white px-8 sm:px-12 text-base sm:text-lg h-12 sm:h-14 shadow-lg hover:shadow-xl md:hover:scale-105 transition-all duration-300"
+              size="default"
+              className="w-full sm:w-auto bg-gradient-to-r from-[#3B0099] to-[#7C3AED] hover:from-[#2A0066] hover:to-[#6D28D9] text-white px-6 h-11 shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer"
               onClick={() => window.open(ctaUrl, '_blank')}
             >
               {ctaText}
             </Button>
             {onLearnMore && (
-              <div>
-                <button
-                  onClick={onLearnMore}
-                  className="text-[#4A00BF] hover:text-[#3B0099] font-semibold text-base underline underline-offset-4 hover:underline-offset-8 transition-all"
-                >
-                  {learnMoreText || 'Learn More →'}
-                </button>
-              </div>
+              <button
+                onClick={onLearnMore}
+                className="text-sm text-[#4A00BF] hover:text-[#3B0099] font-semibold underline underline-offset-4 transition-colors cursor-pointer"
+              >
+                {learnMoreText || 'Learn More →'}
+              </button>
             )}
           </div>
         )}
@@ -242,15 +268,13 @@ export function PlatformComparison({
   };
 
   return (
-    <section id="comparison" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#F3E8FF]">
-      <div className="max-w-6xl mx-auto space-y-12 sm:space-y-16">
+    <section id="comparison" className="py-10 sm:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#F3E8FF]">
+      <div className="max-w-4xl mx-auto space-y-5 sm:space-y-6">
         <PlatformCard {...mediumchat} />
         <PlatformCard {...psychicworld} />
 
-        <div className="text-center">
-          <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] bg-clip-text text-transparent mb-8">
-            Other valuable psychic contact platforms
-          </h3>
+        <div className="pt-4 pb-1">
+          <p className="text-sm font-semibold text-gray-600 uppercase tracking-widest text-center">Also worth considering</p>
         </div>
 
         <PlatformCard {...keen} />

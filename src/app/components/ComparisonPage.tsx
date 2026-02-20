@@ -29,7 +29,7 @@ export function ComparisonPage({
   onContact
 }: ComparisonPageProps) {
   return (
-    <div className="min-h-screen bg-white pt-16 sm:pt-20">
+    <div className="min-h-screen bg-white">
       <Hero />
       <HowWeRate />
       <PlatformComparison
@@ -42,16 +42,16 @@ export function ComparisonPage({
       <HowWeChoose />
 
       {/* Home CTA Banner */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] rounded-3xl p-8 sm:p-12 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white">
+      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 bg-gradient-to-b from-purple-50 to-white">
+        <div className="max-w-2xl mx-auto w-full bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] rounded-3xl p-10 sm:p-16 text-center shadow-2xl">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight">
             Haven't entered our weekly free reading giveaway yet?
           </h2>
-          <p className="text-lg text-white/90 mt-3">
+          <p className="text-lg text-white/85 mt-4 leading-relaxed">
             10 souls are chosen every Monday. It's free and takes 30 seconds.
           </p>
           <Button
-            className="mt-6 bg-white text-[#4A00BF] font-bold hover:bg-gray-100 px-8 h-12 rounded-xl"
+            className="mt-8 bg-white text-[#4A00BF] font-bold hover:bg-gray-50 px-10 h-13 text-base rounded-full shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer"
             onClick={onHomeClick}
           >
             Enter the Free Reading Giveaway →

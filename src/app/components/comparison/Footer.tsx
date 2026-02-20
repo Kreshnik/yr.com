@@ -11,11 +11,11 @@ export function Footer({ onTerms, onPrivacy, onContact, onHome }: FooterProps) {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col items-center space-y-4 sm:space-y-5">
           <span className="text-base sm:text-lg text-gray-900 font-bold">YourReading.com</span>
-          <p className="text-sm sm:text-base text-gray-500 text-center">
+          <p className="text-sm sm:text-base text-gray-600 text-center">
             In partnership with Mediumchat — trusted spiritual guidance since 2020
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-gray-500">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-gray-600">
             {onHome && (
               <button onClick={onHome} className="hover:text-[#4A00BF] transition-colors underline-offset-4 hover:underline">
                 Home
@@ -38,10 +38,10 @@ export function Footer({ onTerms, onPrivacy, onContact, onHome }: FooterProps) {
             )}
           </div>
 
-          <p className="text-xs text-gray-400 text-center max-w-2xl">
+          <p className="text-xs text-gray-600 text-center max-w-2xl">
             YourReading.com is an independent review and lead generation website. We may receive affiliate compensation from platforms featured on this site. This does not affect our editorial integrity. Results from psychic readings vary. For entertainment purposes.
           </p>
-          <p className="text-xs sm:text-sm text-gray-400 text-center">
+          <p className="text-xs sm:text-sm text-gray-600 text-center">
             © 2026 YourReading.com · All rights reserved
           </p>
         </div>

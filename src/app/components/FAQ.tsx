@@ -52,17 +52,17 @@ export function FAQ() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] bg-clip-text text-transparent mb-4">Questions You Might Be Holding</h2>
         </div>
 
-        <Accordion type="single" collapsible className="space-y-4">
+        <Accordion type="single" collapsible className="space-y-3">
           {faqs.map((faq, index) => (
             <AccordionItem
               key={index}
               value={`item-${index}`}
-              className="bg-white rounded-xl px-4 sm:px-6 border-none shadow-sm"
+              className="bg-white rounded-xl px-5 sm:px-7 border border-purple-100 shadow-[0_1px_6px_rgba(74,0,191,0.06)] hover:border-purple-200 transition-colors duration-150"
             >
-              <AccordionTrigger className="text-left text-base sm:text-lg text-gray-900 hover:text-[#4A00BF] py-4 sm:py-6">
+              <AccordionTrigger className="text-left text-base sm:text-lg font-medium text-gray-900 hover:text-[#4A00BF] hover:no-underline py-5 sm:py-6 gap-4">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-base sm:text-lg text-gray-600 leading-relaxed pb-4 sm:pb-6">
+              <AccordionContent className="text-base sm:text-lg text-gray-600 leading-relaxed pb-5 sm:pb-6">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

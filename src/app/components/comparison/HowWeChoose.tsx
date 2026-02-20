@@ -4,7 +4,8 @@ import { motion } from 'motion/react';
 
 export function HowWeChoose() {
   return (
-    <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-white">
+    <>
+    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 bg-white">
       <div className="max-w-4xl mx-auto space-y-8 sm:space-y-12">
         {/* How We Choose Section */}
         <div className="space-y-6">
@@ -105,69 +106,79 @@ export function HowWeChoose() {
           </div>
         </div>
 
-        {/* Ready to Get Your Answers Section */}
-        <div className="space-y-6 pt-8">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-tight font-bold bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] bg-clip-text text-transparent text-center">
+      </div>
+    </section>
+
+    {/* Ready to Get Your Answers — full-height section */}
+    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 bg-white">
+      <div className="max-w-4xl mx-auto w-full space-y-8">
+        <div className="text-center space-y-3">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl leading-tight font-bold bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] bg-clip-text text-transparent">
             Ready to Get Your Answers?
           </h2>
-          
-          <p className="text-base sm:text-lg text-gray-700 leading-relaxed text-center">
+          <p className="text-base sm:text-lg text-gray-600">
             Here's how to get started:
           </p>
+        </div>
 
-          <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-3">
-            <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-[#4A00BF]/20 space-y-3">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#4A00BF] to-[#7C3AED] flex items-center justify-center text-white font-bold text-xl">
-                1
-              </div>
-              <h3 className="text-lg font-bold text-[#4A00BF]">Review & Compare</h3>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                Review the comparison table above to see which platform aligns best with your budget and preferences.
-              </p>
+        <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-3">
+          <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-[#4A00BF]/20 space-y-3">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#4A00BF] to-[#7C3AED] flex items-center justify-center text-white font-bold text-xl">
+              1
             </div>
-
-            <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-[#4A00BF]/20 space-y-3">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#4A00BF] to-[#7C3AED] flex items-center justify-center text-white font-bold text-xl">
-                2
-              </div>
-              <h3 className="text-lg font-bold text-[#4A00BF] flex items-center gap-2">
-                Try Free <Gift className="w-5 h-5" />
-              </h3>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                Take advantage of free trials. Every platform listed offers introductory minutes—use them to test the experience and find a reader you connect with.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-[#4A00BF]/20 space-y-3">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#4A00BF] to-[#7C3AED] flex items-center justify-center text-white font-bold text-xl">
-                3
-              </div>
-              <h3 className="text-lg font-bold text-[#4A00BF] flex items-center gap-2">
-                Go Deeper <TrendingUp className="w-5 h-5" />
-              </h3>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                Once you've found your reader, invest in a full session. Most of our community members report that a 15-20 minute reading provides enough time for real clarity and guidance.
-              </p>
-            </div>
+            <h3 className="text-lg font-bold text-[#4A00BF]">Review & Compare</h3>
+            <p className="text-sm text-gray-700 leading-relaxed">
+              Review the comparison table above to see which platform aligns best with your budget and preferences.
+            </p>
           </div>
 
-          <div className="bg-gradient-to-br from-[#4A00BF]/10 via-[#A855F7]/5 to-[#4A00BF]/5 rounded-2xl p-6 sm:p-8 lg:p-10 border border-[#4A00BF]/20 shadow-lg space-y-6 text-center">
-            <p className="text-lg sm:text-xl text-gray-800 leading-relaxed font-medium">
-              But here's the thing: You don't have to wait. If you're eager to get answers right now, our top-rated platform, <strong className="text-[#4A00BF]">Mediumchat.com</strong>, offers a 3-minute free trial that you can start immediately.
+          <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-[#4A00BF]/20 space-y-3">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#4A00BF] to-[#7C3AED] flex items-center justify-center text-white font-bold text-xl">
+              2
+            </div>
+            <h3 className="text-lg font-bold text-[#4A00BF] flex items-center gap-2">
+              Try Free <Gift className="w-5 h-5" />
+            </h3>
+            <p className="text-sm text-gray-700 leading-relaxed">
+              Take advantage of free trials. Every platform listed offers introductory minutes—use them to test the experience and find a reader you connect with.
             </p>
-            <p className="text-base sm:text-lg text-gray-700">
-              No credit card required.
+          </div>
+
+          <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-[#4A00BF]/20 space-y-3">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#4A00BF] to-[#7C3AED] flex items-center justify-center text-white font-bold text-xl">
+              3
+            </div>
+            <h3 className="text-lg font-bold text-[#4A00BF] flex items-center gap-2">
+              Go Deeper <TrendingUp className="w-5 h-5" />
+            </h3>
+            <p className="text-sm text-gray-700 leading-relaxed">
+              Once you've found your reader, invest in a full session. Most of our community members report that a 15-20 minute reading provides enough time for real clarity and guidance.
             </p>
-            <Button 
-              size="lg" 
-              className="w-full sm:w-auto bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] hover:from-[#2A0066] hover:via-[#3A0099] hover:to-[#9333EA] text-white px-8 sm:px-12 text-base sm:text-lg h-12 sm:h-14 shadow-lg hover:shadow-xl md:hover:scale-105 transition-all duration-300"
-              onClick={() => window.open('https://mediumchat.com/start', '_blank')}
-            >
-              Start Your Free Reading Now
-            </Button>
           </div>
         </div>
       </div>
     </section>
+
+    {/* "But here's the thing" card — full-height CTA section */}
+    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 bg-gradient-to-b from-white to-purple-50">
+      <div className="max-w-2xl mx-auto w-full">
+        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-purple-200 shadow-xl text-center space-y-6">
+          <p className="text-xl sm:text-2xl text-gray-800 leading-relaxed font-medium">
+            You don't have to wait. If you're eager to get answers right now, our top-rated platform, <strong className="text-[#4A00BF]">Mediumchat.com</strong>, offers a 3-minute free trial that you can start immediately.
+          </p>
+          <p className="text-base text-gray-600">
+            No credit card required.
+          </p>
+          <Button
+            size="lg"
+            className="w-full sm:w-auto bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] hover:from-[#2A0066] hover:via-[#3A0099] hover:to-[#9333EA] text-white px-10 text-base sm:text-lg h-12 sm:h-14 shadow-lg hover:shadow-xl transition-all duration-300"
+            onClick={() => window.open('https://mediumchat.com/start', '_blank')}
+          >
+            Start Your Free Reading Now
+          </Button>
+        </div>
+      </div>
+    </section>
+    </>
   );
 }

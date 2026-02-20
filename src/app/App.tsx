@@ -85,7 +85,7 @@ export default function App() {
 
         {currentPage === 'home' && (
           <motion.div key="home" variants={pageVariants} initial="initial" animate="animate" exit="exit"
-            className="min-h-screen bg-white pt-16 sm:pt-20">
+            className="min-h-screen">
             <Hero />
             <Introduction />
             <HowItWorks />

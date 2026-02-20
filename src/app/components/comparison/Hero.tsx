@@ -13,7 +13,9 @@ export function Hero() {
   ];
 
   return (
-    <section id="hero" className="flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-12 sm:pb-16 bg-gradient-to-b from-[#E9D5FF] to-white">
+    <section id="hero" className="min-h-screen flex flex-col bg-gradient-to-b from-[#E9D5FF] to-white">
+      <div className="h-16 sm:h-20 flex-shrink-0" />
+      <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
       <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6">
         <div className="relative inline-block">
           <h1 className="text-4xl sm:text-5xl lg:text-7xl px-4 leading-tight font-extrabold tracking-tight drop-shadow-sm relative">
@@ -71,6 +73,7 @@ export function Hero() {
         <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-4 font-medium">
           Love Reading – Tarot Reading – Medium Reading
         </p>
+      </div>
       </div>
     </section>
   );

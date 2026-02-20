@@ -102,11 +102,11 @@ export function KeenReviewPage({ onBack, onTerms, onPrivacy, onContact, onHome }
                   {[...Array(stars)].map((_, j) => <Star key={j} className="w-4 h-4 fill-[#4A00BF] text-[#4A00BF]" />)}
                 </div>
                 <p className="text-base text-gray-700 leading-relaxed mb-3">{quote}</p>
-                <p className="text-sm text-gray-500">— {name}</p>
+                <p className="text-sm text-gray-600">— {name}</p>
               </div>
             ))}
           </div>
-          <p className="text-xs text-gray-400 italic text-center mt-8">Testimonials represent individual experiences. Results are not guaranteed.</p>
+          <p className="text-xs text-gray-600 italic text-center mt-8">Testimonials represent individual experiences. Results are not guaranteed.</p>
         </div>
       </section>
 
@@ -127,7 +127,7 @@ export function KeenReviewPage({ onBack, onTerms, onPrivacy, onContact, onHome }
               <p className="text-gray-600 font-bold text-base mb-3">Worth Noting</p>
               <ul className="space-y-2 text-sm text-gray-600">
                 {['No photo/video verification of advisors', 'Prices can reach $19.99/min for top psychics', 'Variable pricing less transparent than Mediumchat'].map((s, i) => (
-                  <li key={i} className="flex items-start gap-2"><Info className="w-4 h-4 text-gray-400 flex-shrink-0 mt-0.5" />{s}</li>
+                  <li key={i} className="flex items-start gap-2"><Info className="w-4 h-4 text-gray-600 flex-shrink-0 mt-0.5" />{s}</li>
                 ))}
               </ul>
             </div>

@@ -14,8 +14,7 @@ export function Navbar({ onLogoClick, onComparisonClick }: NavbarProps) {
   const closeMenu = () => setIsMenuOpen(false);
 
   const navLinks = [
-    { label: 'Home', onClick: () => { onLogoClick(); closeMenu(); } },
-    { label: 'Top 5 Psychic Chats', onClick: () => { onComparisonClick(); closeMenu(); } },
+    { label: 'Top 5 Psychic Chat Platforms', onClick: () => { onComparisonClick(); closeMenu(); } },
   ];
 
   return (
@@ -34,16 +33,13 @@ export function Navbar({ onLogoClick, onComparisonClick }: NavbarProps) {
             </button>
 
             {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <button
-                  key={link.label}
-                  onClick={link.onClick}
-                  className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-[#4A00BF] hover:bg-purple-50 rounded-lg transition-colors duration-150 cursor-pointer"
-                >
-                  {link.label}
-                </button>
-              ))}
+            <div className="hidden md:flex items-center">
+              <button
+                onClick={() => onComparisonClick()}
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold text-[#4A00BF] border border-[#4A00BF]/40 hover:border-[#4A00BF] hover:bg-purple-50 rounded-full transition-all duration-150 cursor-pointer"
+              >
+                Top 5 Psychic Chat Platforms
+              </button>
             </div>
 
             {/* Desktop CTA */}
@@ -98,6 +94,12 @@ export function Navbar({ onLogoClick, onComparisonClick }: NavbarProps) {
               className="fixed top-16 sm:top-20 left-0 right-0 z-40 md:hidden bg-white border-b border-purple-100 shadow-xl"
             >
               <div className="max-w-7xl mx-auto px-4 py-4 space-y-1">
+                <button
+                  onClick={() => { onLogoClick(); closeMenu(); }}
+                  className="block w-full text-left px-4 py-3 text-base font-medium text-gray-700 hover:text-[#4A00BF] hover:bg-purple-50 rounded-xl transition-colors cursor-pointer"
+                >
+                  Home
+                </button>
                 {navLinks.map((link) => (
                   <button
                     key={link.label}

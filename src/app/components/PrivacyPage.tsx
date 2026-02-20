@@ -15,7 +15,7 @@ export function PrivacyPage({ onTerms, onPrivacy, onContact, onComparison }: Pri
           <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] bg-clip-text text-transparent mb-2">
             Privacy Policy
           </h1>
-          <p className="text-sm text-gray-500 mb-8">Last updated: February 2026</p>
+          <p className="text-sm text-gray-600 mb-8">Last updated: February 2026</p>
 
           <div className="space-y-6 text-base sm:text-lg text-gray-700 leading-relaxed">
             <div>

@@ -29,7 +29,7 @@ export function ContactPage({ onTerms, onPrivacy, onContact, onComparison }: Con
               <div>
                 <p className="text-sm font-bold text-[#4A00BF] uppercase tracking-wide">Email</p>
                 <p className="text-base text-gray-700 mt-0.5">contact@yourreading.com</p>
-                <p className="text-xs text-gray-500 mt-1">We respond within 24–48 hours.</p>
+                <p className="text-xs text-gray-600 mt-1">We respond within 24–48 hours.</p>
               </div>
             </div>
 
