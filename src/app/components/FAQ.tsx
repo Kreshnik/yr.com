@@ -15,8 +15,12 @@ const faqs = [
     answer: 'Through a completely random, unbiased digital process. We\'ll share a video showing our transparent selection method.'
   },
   {
+    question: 'How many spots are left this week?',
+    answer: 'We select exactly 10 souls each Monday. As entries grow, your odds shift — which is why entering now, early in the week, gives your spirit the best chance to be seen. The door is open right now.'
+  },
+  {
     question: 'What if I\'m not selected this week?',
-    answer: 'You\'re automatically included in every Monday\'s drawing for 3 months—120 genuine opportunities. After 3 months, re-enter with one click.'
+    answer: 'You\'re automatically included in every Monday\'s drawing for 3 months — 12–13 genuine opportunities. After 3 months, re-enter with one click.'
   },
   {
     question: 'Can I choose my reader?',
@@ -47,11 +51,11 @@ export function FAQ() {
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] bg-clip-text text-transparent mb-4">Questions You Might Be Holding</h2>
         </div>
-        
+
         <Accordion type="single" collapsible className="space-y-4">
           {faqs.map((faq, index) => (
-            <AccordionItem 
-              key={index} 
+            <AccordionItem
+              key={index}
               value={`item-${index}`}
               className="bg-white rounded-xl px-4 sm:px-6 border-none shadow-sm"
             >

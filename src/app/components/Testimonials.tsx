@@ -1,40 +1,58 @@
 import { useRef, useState } from 'react';
 import { Button } from '@/app/components/ui/button';
-import { Heart } from 'lucide-react';
+import { Heart, Star } from 'lucide-react';
 import video1 from '@/assets/videos/video1.mp4';
 import video2 from '@/assets/videos/video2.mp4';
 import video3 from '@/assets/videos/video3.mp4';
 import video4 from '@/assets/videos/video4.mp4';
+import thumb1 from '@/assets/thumbnails/thumb1.jpg';
+import thumb2 from '@/assets/thumbnails/thumb2.jpg';
+import thumb3 from '@/assets/thumbnails/thumb3.jpg';
+import thumb4 from '@/assets/thumbnails/thumb4.jpg';
 
 const videoTestimonials = [
   {
     src: video1,
+    poster: thumb1,
     name: 'Sarah M.',
     text: '"My Mediumchat tarot reading helped me see the spiritual purpose behind everything. I finally felt understood on a soul level."'
   },
   {
     src: video2,
+    poster: thumb2,
     name: 'Jennifer L.',
     text: '"She helped me understand the divine timing of everything. For the first time in weeks, I felt held by something bigger than my fear."'
   },
   {
     src: video3,
+    poster: thumb3,
     name: 'Maria T.',
     text: '"The reading gave me clarity I had been searching for. I felt a deep connection and left with renewed hope and direction."'
   },
   {
     src: video4,
+    poster: thumb4,
     name: 'Rachel K.',
     text: '"I was skeptical at first, but the accuracy was undeniable. It was like speaking to someone who truly knew my soul."'
   }
 ];
 
 const textTestimonials = [
-  '"The insights about my soul path were beautiful."',
-  '"The cosmic guidance helped me trust myself again."'
+  { text: '"The insights about my soul path were beautiful."', author: 'Amara D.' },
+  { text: '"The cosmic guidance helped me trust myself again."', author: 'Lena R.' }
 ];
 
-function VideoCard({ src, name, text }: { src: string; name: string; text: string }) {
+function StarRow() {
+  return (
+    <div className="flex gap-1 mb-2">
+      {[...Array(5)].map((_, i) => (
+        <Star key={i} className="w-4 h-4 fill-[#4A00BF] text-[#4A00BF]" />
+      ))}
+    </div>
+  );
+}
+
+function VideoCard({ src, poster, name, text }: { src: string; poster: string; name: string; text: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
 
@@ -45,10 +63,11 @@ function VideoCard({ src, name, text }: { src: string; name: string; text: strin
 
   return (
     <div className="bg-gray-50 rounded-2xl overflow-hidden">
-      <div className="relative aspect-video">
+      <div className="relative aspect-[9/16]">
         <video
           ref={videoRef}
           src={src}
+          poster={poster}
           className="w-full h-full object-cover"
           onEnded={() => setPlaying(false)}
         />
@@ -65,6 +84,7 @@ function VideoCard({ src, name, text }: { src: string; name: string; text: strin
         )}
       </div>
       <div className="p-6 sm:p-8">
+        <StarRow />
         <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-3 sm:mb-4">{text}</p>
         <p className="text-sm sm:text-base text-gray-500">— {name}</p>
       </div>
@@ -80,21 +100,32 @@ export function Testimonials() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] bg-clip-text text-transparent mb-4">Stories From Kindred Spirits</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
           {videoTestimonials.map((testimonial, index) => (
             <VideoCard key={index} {...testimonial} />
           ))}
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
-          {textTestimonials.map((text, index) => (
+        <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 mb-10 sm:mb-14">
+          {textTestimonials.map(({ text, author }, index) => (
             <div key={index} className="bg-[#4A00BF]/5 rounded-2xl p-6 sm:p-8">
               <div className="flex gap-3 sm:gap-4">
                 <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-[#4A00BF] flex-shrink-0 mt-1" fill="currentColor" />
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed">{text}</p>
+                <div>
+                  <p className="text-base sm:text-lg text-gray-700 leading-relaxed">{text}</p>
+                  <p className="text-sm text-gray-500 mt-2">— {author}</p>
+                </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Social proof anchor */}
+        <div className="flex justify-center mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-3 bg-purple-50 rounded-2xl px-6 py-4">
+            <Heart className="w-5 h-5 text-[#A855F7]" fill="currentColor" />
+            <p className="text-sm sm:text-base text-gray-600">Joined by <strong className="text-[#4A00BF]">49,598 seekers</strong> who trusted the process</p>
+          </div>
         </div>
 
         <div className="text-center">

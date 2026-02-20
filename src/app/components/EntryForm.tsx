@@ -9,17 +9,30 @@ interface EntryFormProps {
 }
 
 export function EntryForm({ onSubmitSuccess }: EntryFormProps) {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    email: '',
-    nickname: ''
-  });
+  const [formData, setFormData] = useState({ firstName: '', email: '', nickname: '' });
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    onSubmitSuccess();
+    setSubmitError(null);
+    setLoading(true);
+    try {
+      await fetch('https://api.leadconnectorhq.com/hooks/WEBHOOK_ID_PLACEHOLDER', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          email: formData.email,
+          nickname: formData.nickname
+        })
+      });
+      onSubmitSuccess();
+    } catch {
+      setSubmitError('Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -52,8 +65,7 @@ export function EntryForm({ onSubmitSuccess }: EntryFormProps) {
         .animate-float3 { animation: float3 12s ease-in-out infinite; }
         .animate-float4 { animation: float4 9s ease-in-out infinite; }
       `}</style>
-      
-      {/* Fondo decorativo de corazones */}
+
       <div className="absolute inset-0 pointer-events-none">
         <Heart className="absolute top-10 left-[5%] w-12 h-12 text-purple-200 fill-purple-200 opacity-35 animate-float1" />
         <Heart className="absolute top-16 right-[8%] w-10 h-10 text-violet-200 fill-violet-200 opacity-30 animate-float2" />
@@ -62,13 +74,13 @@ export function EntryForm({ onSubmitSuccess }: EntryFormProps) {
         <Heart className="absolute top-[8%] left-[8%] w-10 h-10 text-purple-200 fill-purple-200 opacity-28 animate-float2" />
         <Heart className="absolute top-[10%] right-[12%] w-11 h-11 text-violet-100 fill-violet-100 opacity-28 animate-float1" />
         <Heart className="absolute top-[12%] left-[18%] w-9 h-9 text-purple-100 fill-purple-100 opacity-30 animate-float4" />
-        <Heart className="absolute top-[15%] right-[5%] w-13 h-13 text-violet-200 fill-violet-200 opacity-25 animate-float3" />
+        <Heart className="absolute top-[15%] right-[5%] w-12 h-12 text-violet-200 fill-violet-200 opacity-25 animate-float3" />
         <Heart className="absolute top-[18%] left-[25%] w-10 h-10 text-purple-200 fill-purple-200 opacity-32 animate-float2" />
         <Heart className="absolute top-[22%] right-[15%] w-12 h-12 text-violet-100 fill-violet-100 opacity-30 animate-float1" />
         <Heart className="absolute top-[28%] left-[3%] w-9 h-9 text-purple-100 fill-purple-100 opacity-28 animate-float3" />
         <Heart className="absolute top-[32%] right-[25%] w-11 h-11 text-violet-200 fill-violet-200 opacity-30 animate-float4" />
         <Heart className="absolute top-[38%] left-[22%] w-8 h-8 text-purple-200 fill-purple-200 opacity-32 animate-float1" />
-        <Heart className="absolute top-[42%] right-[6%] w-13 h-13 text-violet-100 fill-violet-100 opacity-25 animate-float2" />
+        <Heart className="absolute top-[42%] right-[6%] w-12 h-12 text-violet-100 fill-violet-100 opacity-25 animate-float2" />
         <Heart className="absolute top-[48%] left-[12%] w-10 h-10 text-purple-100 fill-purple-100 opacity-30 animate-float4" />
         <Heart className="absolute top-[52%] right-[18%] w-9 h-9 text-violet-200 fill-violet-200 opacity-28 animate-float3" />
         <Heart className="absolute top-[58%] left-[28%] w-11 h-11 text-purple-200 fill-purple-200 opacity-32 animate-float1" />
@@ -78,11 +90,11 @@ export function EntryForm({ onSubmitSuccess }: EntryFormProps) {
         <Heart className="absolute top-[78%] left-[20%] w-9 h-9 text-purple-200 fill-purple-200 opacity-30 animate-float1" />
         <Heart className="absolute bottom-32 left-[15%] w-11 h-11 text-violet-100 fill-violet-100 opacity-30 animate-float2" />
         <Heart className="absolute bottom-28 right-[8%] w-10 h-10 text-purple-100 fill-purple-100 opacity-28 animate-float4" />
-        <Heart className="absolute bottom-20 right-[20%] w-13 h-13 text-violet-200 fill-violet-200 opacity-25 animate-float3" />
+        <Heart className="absolute bottom-20 right-[20%] w-12 h-12 text-violet-200 fill-violet-200 opacity-25 animate-float3" />
         <Heart className="absolute bottom-16 left-[10%] w-12 h-12 text-purple-200 fill-purple-200 opacity-32 animate-float1" />
         <Heart className="absolute bottom-24 right-[14%] w-8 h-8 text-violet-100 fill-violet-100 opacity-32 animate-float2" />
       </div>
-      
+
       <div className="max-w-3xl mx-auto relative z-10">
         <div className="text-center mb-8 sm:mb-12">
           <div className="inline-flex items-center justify-center mb-4 sm:mb-6">
@@ -119,8 +131,8 @@ export function EntryForm({ onSubmitSuccess }: EntryFormProps) {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-            <div className="space-y-2">
-              <label htmlFor="firstName" className="block text-sm sm:text-base text-gray-700">
+            <div className="space-y-1">
+              <label htmlFor="firstName" className="block text-sm sm:text-base text-gray-700 font-medium">
                 First Name *
               </label>
               <Input
@@ -132,10 +144,11 @@ export function EntryForm({ onSubmitSuccess }: EntryFormProps) {
                 value={formData.firstName}
                 onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
               />
+              <p className="text-xs text-gray-400">This is how we'll greet you if you're chosen.</p>
             </div>
 
-            <div className="space-y-2">
-              <label htmlFor="email" className="block text-sm sm:text-base text-gray-700">
+            <div className="space-y-1">
+              <label htmlFor="email" className="block text-sm sm:text-base text-gray-700 font-medium">
                 Email *
               </label>
               <Input
@@ -147,29 +160,36 @@ export function EntryForm({ onSubmitSuccess }: EntryFormProps) {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
+              <p className="text-xs text-gray-400">We only send your weekly drawing result and occasional spiritual insights. Unsubscribe anytime.</p>
             </div>
 
-            <div className="space-y-2">
-              <label htmlFor="nickname" className="block text-sm sm:text-base text-gray-700">
-                Nickname *
+            <div className="space-y-1">
+              <label htmlFor="nickname" className="block text-sm sm:text-base text-gray-700 font-medium">
+                Your Reading Nickname *
               </label>
               <Input
                 id="nickname"
                 type="text"
                 required
-                placeholder="A nickname that feels right to you"
+                placeholder="A name that feels sacred to you"
                 className="w-full h-12 sm:h-14 text-base"
                 value={formData.nickname}
                 onChange={(e) => setFormData({ ...formData, nickname: e.target.value })}
               />
+              <p className="text-xs text-gray-400">Winners are announced publicly by nickname only. Your full identity is always protected.</p>
             </div>
 
-            <Button 
-              type="submit" 
+            <Button
+              type="submit"
+              disabled={loading}
               className="w-full bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] hover:from-[#2A0066] hover:via-[#3A0099] hover:to-[#9333EA] text-white h-12 sm:h-14 text-base sm:text-lg shadow-lg hover:shadow-xl md:hover:scale-105 transition-all duration-300"
             >
-              Claim Your Free Psychic Reading
+              {loading ? 'Entering...' : 'Claim Your Free Psychic Reading'}
             </Button>
+
+            {submitError && (
+              <p className="text-red-500 text-sm text-center">{submitError}</p>
+            )}
 
             <p className="text-xs sm:text-sm text-gray-500 text-center leading-relaxed">
               No credit card required. Your privacy is sacred to us.

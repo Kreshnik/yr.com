@@ -28,14 +28,18 @@ export function Introduction() {
               <Sparkles className="w-5 h-5 text-[#4A00BF] mt-1 flex-shrink-0" />
               <span>Trust your intuition and next steps with confidence</span>
             </li>
+            <li className="flex items-start gap-3">
+              <Sparkles className="w-5 h-5 text-[#4A00BF] mt-1 flex-shrink-0" />
+              <span>Know whether divine timing is working in your favor right now</span>
+            </li>
           </ul>
         </div>
         <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
           Enter once, and you're included in every weekly drawing for <strong className="text-[#4A00BF]">3 months</strong>.
         </p>
         <div className="text-center pt-4">
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             className="w-full sm:w-auto bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] hover:from-[#2A0066] hover:via-[#3A0099] hover:to-[#9333EA] text-white px-6 sm:px-12 text-base sm:text-lg h-12 sm:h-14 shadow-lg hover:shadow-xl md:hover:scale-105 transition-all duration-300"
             onClick={() => document.getElementById('entry-form')?.scrollIntoView({ behavior: 'smooth' })}
           >
