@@ -112,7 +112,7 @@ export function Testimonials() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] bg-clip-text text-transparent mb-4">Stories From Kindred Spirits</h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
           {videoTestimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -127,7 +127,7 @@ export function Testimonials() {
         </div>
 
         <motion.div
-          className="mb-10 sm:mb-14 -mx-4 sm:-mx-6 lg:-mx-8"
+          className="mb-8 sm:mb-12 -mx-4 sm:-mx-6 lg:-mx-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: '-40px' }}
@@ -138,7 +138,7 @@ export function Testimonials() {
 
         {/* Social proof anchor */}
         <motion.div
-          className="flex justify-center mb-10 sm:mb-14"
+          className="flex justify-center mb-8 sm:mb-12"
           initial={{ opacity: 0, scale: 0.96 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: '-40px' }}

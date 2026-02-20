@@ -19,7 +19,7 @@ export function Hero() {
       <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
       <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6">
         <div className="relative inline-block">
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl px-4 leading-tight font-extrabold tracking-tight drop-shadow-sm relative">
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl px-4 leading-tight font-bold tracking-tight relative">
             <span className="relative z-10 bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] bg-clip-text text-transparent">
               Top 5 Psychic Chat Platforms Compared
             </span>

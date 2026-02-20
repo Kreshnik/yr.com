@@ -51,7 +51,7 @@ export function ComparisonPage({
             10 souls are chosen every Monday. It's free and takes 30 seconds.
           </p>
           <Button
-            className="mt-8 bg-white text-[#4A00BF] font-bold hover:bg-gray-50 px-10 h-13 text-base rounded-full shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer"
+            className="mt-8 bg-white text-[#4A00BF] font-bold hover:bg-gray-50 px-10 h-12 sm:h-14 text-base rounded-full shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer"
             onClick={onHomeClick}
           >
             Enter the Free Reading Giveaway →

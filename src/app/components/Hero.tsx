@@ -53,7 +53,7 @@ export function Hero() {
             <strong>10 souls</strong> are chosen every Monday — enter once, stay in for 3 months.
           </p>
 
-          <div className="pt-2 px-4">
+          <div className="pt-4 sm:pt-6 px-4">
             <Button
               size="lg"
               className="w-full sm:w-auto bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] hover:from-[#2A0066] hover:via-[#3A0099] hover:to-[#9333EA] text-white px-6 sm:px-8 text-base sm:text-lg h-12 sm:h-14 shadow-lg hover:shadow-xl md:hover:scale-105 transition-all duration-300"

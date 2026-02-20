@@ -6,7 +6,7 @@ export function ThankYou() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto space-y-8 sm:space-y-12">
 
           {/* Header */}
@@ -169,7 +169,7 @@ export function ThankYou() {
           <div className="text-center">
             <Button
               size="lg"
-              className="w-full sm:w-auto bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] hover:from-[#2A0066] hover:via-[#3A0099] hover:to-[#9333EA] text-white px-8 sm:px-12 text-lg sm:text-xl h-14 sm:h-16 font-semibold shadow-lg hover:shadow-xl md:hover:scale-105 transition-all duration-300"
+              className="w-full sm:w-auto bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] hover:from-[#2A0066] hover:via-[#3A0099] hover:to-[#9333EA] text-white px-8 sm:px-12 text-lg sm:text-xl h-12 sm:h-14 font-semibold shadow-lg hover:shadow-xl md:hover:scale-105 transition-all duration-300"
               onClick={openMediumchat}
             >
               Start My Free 3-Minute Reading Now
@@ -187,7 +187,7 @@ export function ThankYou() {
           <div className="text-center">
             <Button
               size="lg"
-              className="w-full sm:w-auto bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] hover:from-[#2A0066] hover:via-[#3A0099] hover:to-[#9333EA] text-white px-8 sm:px-12 text-lg sm:text-xl h-14 sm:h-16 font-semibold shadow-lg hover:shadow-xl md:hover:scale-105 transition-all duration-300"
+              className="w-full sm:w-auto bg-gradient-to-r from-[#3B0099] via-[#4A00BF] to-[#A855F7] hover:from-[#2A0066] hover:via-[#3A0099] hover:to-[#9333EA] text-white px-8 sm:px-12 text-lg sm:text-xl h-12 sm:h-14 font-semibold shadow-lg hover:shadow-xl md:hover:scale-105 transition-all duration-300"
               onClick={openMediumchat}
             >
               Start My Free 3-Minute Reading Now
