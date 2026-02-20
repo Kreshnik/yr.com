@@ -17,7 +17,7 @@ import { TermsPage } from '@/app/components/TermsPage';
 import { PrivacyPage } from '@/app/components/PrivacyPage';
 import { ContactPage } from '@/app/components/ContactPage';
 import { useFavicon } from '@/app/hooks/useFavicon';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
 type PageType =
