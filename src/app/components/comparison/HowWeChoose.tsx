@@ -1,8 +1,12 @@
+import { useRef } from 'react';
 import { Button } from '@/app/components/ui/button';
 import { CheckCircle2, Gift, TrendingUp } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion, useInView } from 'motion/react';
 
 export function HowWeChoose() {
+  const tryNowRef = useRef(null);
+  const tryNowInView = useInView(tryNowRef, { once: false, margin: '-80px 0px' });
+
   return (
     <>
     <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 bg-white">
@@ -61,9 +65,14 @@ export function HowWeChoose() {
                 
                 {/* CTA Button */}
                 <div className="mt-8 flex justify-center">
-                  <a 
-                    href="https://mediumchat.com/start" 
-                    target="_blank" 
+                  <motion.div
+                    ref={tryNowRef}
+                    animate={tryNowInView ? { scale: [1, 1.06, 1] } : { scale: 1 }}
+                    transition={tryNowInView ? { duration: 1.8, repeat: Infinity, repeatDelay: 0.6, ease: 'easeInOut' } : { duration: 0.3 }}
+                  >
+                  <a
+                    href="https://mediumchat.com/start"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block relative group"
                   >
@@ -85,13 +94,14 @@ export function HowWeChoose() {
                     </div>
                     
                     {/* Button */}
-                    <Button 
+                    <Button
                       size="lg"
                       className="relative bg-gradient-to-r from-[#4A00BF] via-[#6B21A8] to-[#4A00BF] text-white hover:from-[#5B11D0] hover:via-[#7C2BB9] hover:to-[#5B11D0] font-bold text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105 border-2 border-white"
                     >
                       Try now! ✨
                     </Button>
                   </a>
+                  </motion.div>
                 </div>
               </div>
             </div>

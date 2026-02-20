@@ -148,6 +148,11 @@
     @apply border-border outline-ring/50;
   }
 
+  /* Prevent bg-clip-text from clipping descenders/ascenders on gradient headings */
+  .bg-clip-text {
+    padding-bottom: 0.1em;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: 'Lora', serif;
@@ -196,6 +201,7 @@
     font-size: var(--text-base);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    cursor: pointer;
   }
 
   input {

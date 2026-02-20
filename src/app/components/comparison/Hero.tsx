@@ -1,5 +1,5 @@
-import { MediumchatLogo } from '@/app/components/MediumchatLogo';
 import { motion } from 'motion/react';
+import { CelestialBackground } from '@/app/components/CelestialBackground';
 
 export function Hero() {
   // Sparkle positions - distributed around the text
@@ -13,7 +13,8 @@ export function Hero() {
   ];
 
   return (
-    <section id="hero" className="min-h-screen flex flex-col bg-gradient-to-b from-[#E9D5FF] to-white">
+    <section id="hero" className="relative min-h-screen flex flex-col bg-gradient-to-b from-[#E9D5FF] to-white overflow-hidden">
+      <CelestialBackground />
       <div className="h-16 sm:h-20 flex-shrink-0" />
       <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
       <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6">
