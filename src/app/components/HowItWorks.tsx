@@ -35,16 +35,16 @@ export function HowItWorks() {
 
           <div className="space-y-6 sm:space-y-8 mb-12 sm:mb-16">
             {steps.map((step) => (
-              <div key={step.number} className="flex gap-5 sm:gap-7">
-                {/* Step badge */}
-                <div className="flex-shrink-0 flex flex-col items-center">
+              <div key={step.number} className="flex flex-col sm:flex-row gap-4 sm:gap-7">
+                {/* Step badge — centered on mobile, left-aligned on desktop */}
+                <div className="flex justify-center sm:justify-start sm:flex-shrink-0 sm:flex-col sm:items-center">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#3B0099] to-[#7C3AED] text-white flex items-center justify-center text-lg sm:text-xl font-semibold shadow-md shadow-purple-200 z-10">
                     {step.number}
                   </div>
                 </div>
 
                 {/* Card */}
-                <div className="flex-1 bg-white rounded-2xl p-6 sm:p-8 border border-purple-100 shadow-sm mb-1">
+                <div className="flex-1 bg-white rounded-2xl p-6 sm:p-8 border border-purple-100 shadow-sm">
                   <div className="space-y-2 sm:space-y-3">
                     <div className="flex items-center gap-2 flex-wrap">
                       <h3 className="text-xl sm:text-2xl text-gray-900">{step.title}</h3>
